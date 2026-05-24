@@ -547,16 +547,17 @@
         <div class="skill-cat-title"><i class="fa-solid fa-code"></i> Programming & Tools</div>
         <div class="skill-tags">
           <span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">MySQL</span><span class="skill-tag">FAISS</span><span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
+          <span class="skill-tag">MySQL</span><span class="skill-tag">Git</span><span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Docker</span><span class="skill-tag">Tableau</span><span class="skill-tag">Power BI</span>
         </div>
       </div>
       <div class="skill-category reveal">
         <div class="skill-cat-title"><i class="fa-solid fa-cubes"></i> Frameworks & Libraries</div>
         <div class="skill-tags">
-          <span class="skill-tag">Flask</span><span class="skill-tag">FastAPI</span><span class="skill-tag">LangChain</span>
-          <span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span><span class="skill-tag">Scikit-learn</span>
-          <span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Streamlit</span>
+          <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span>
+          <span class="skill-tag">Scikit-learn</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Flask</span>
+          <span class="skill-tag">LangChain</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span>
+          <span class="skill-tag">Streamlit</span><span class="skill-tag">Pydantic</span><span class="skill-tag">pytest</span>
           <span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Plotly</span>
         </div>
       </div>
@@ -564,17 +565,19 @@
         <div class="skill-cat-title"><i class="fa-solid fa-brain"></i> AI & Deep Learning</div>
         <div class="skill-tags">
           <span class="skill-tag">NLP</span><span class="skill-tag">RAG</span><span class="skill-tag">LLMs</span>
+          <span class="skill-tag">Transformers</span><span class="skill-tag">CLIP</span>
           <span class="skill-tag">Regression</span><span class="skill-tag">Classification</span>
           <span class="skill-tag">Random Forests</span><span class="skill-tag">XGBoost</span>
-          <span class="skill-tag">ANN</span><span class="skill-tag">CNN</span><span class="skill-tag">RNN</span>
-          <span class="skill-tag">OpenCV</span><span class="skill-tag">MediaPipe</span>
+          <span class="skill-tag">LightGBM</span><span class="skill-tag">CatBoost</span><span class="skill-tag">SHAP</span>
+          <span class="skill-tag">Optuna</span><span class="skill-tag">ANN</span><span class="skill-tag">CNN</span>
+          <span class="skill-tag">RNN</span><span class="skill-tag">OpenCV</span><span class="skill-tag">MediaPipe</span>
         </div>
       </div>
       <div class="skill-category reveal">
         <div class="skill-cat-title"><i class="fa-solid fa-database"></i> Vector Databases</div>
         <div class="skill-tags">
           <span class="skill-tag">FAISS</span><span class="skill-tag">Milvus</span><span class="skill-tag">Qdrant</span>
-          <span class="skill-tag">ChromaDB</span><span class="skill-tag">Weaviate</span>
+          <span class="skill-tag">ChromaDB</span>
         </div>
       </div>
     </div>
@@ -589,17 +592,32 @@
 
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-name"><i class="fa-solid fa-shield-halved" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Sentinel</div>
+          <div class="project-name"><i class="fa-solid fa-shield-halved" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Fraud Detection System</div>
           <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> New</span>
         </div>
-        <p class="project-desc">End-to-end fraud detection system for digital payment transactions using Dask for scalable data processing and DVC for reproducible ML pipelines. Built with XGBoost, featuring automated feature engineering, experiment tracking, and model versioning.</p>
-        <div class="project-tech"><span>Python</span><span>XGBoost</span><span>Dask</span><span>DVC</span><span>Scikit-learn</span></div>
+        <p class="project-desc">Production fraud detection pipeline on 1.05M credit-card transactions (only 0.57% fraud). CatBoost + XGBoost + LightGBM ensemble hitting AUPRC = 0.984 on a temporal test split. 53 behavioral features (per-card spending velocity, amount z-scores, time-of-day, location signals) jumped AUPRC from 0.876 to 0.982 — far more impact than hyperparameter tuning. Beat a general-purpose LLM baseline head-to-head: F1 = 1.000 vs 0.864, ~240,000× faster (0.1 ms vs 24 s).</p>
+        <div class="project-tech"><span>Python</span><span>CatBoost</span><span>XGBoost</span><span>LightGBM</span><span>FastAPI</span><span>Docker</span><span>SHAP</span><span>Streamlit</span></div>
         <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Scalable pipeline</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> ML reproducibility</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Experiment tracking</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> AUPRC = 0.984</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 0.1 ms / prediction</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 46 regression tests</div>
         </div>
-        <div class="project-links"><a href="https://github.com/Mark007-R/Sentinel" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        <div class="project-links"><a href="https://github.com/Mark007-R/Fraud-Detection-System" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-image" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Visual Product Search Engine</div>
+          <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> New</span>
+        </div>
+        <p class="project-desc">Image-only fashion search on the DeepFashion In-Shop benchmark (300 products, 1,027 queries) hitting R@1 = 0.683 and R@10 = 0.913 with sub-millisecond search. CLIP embeddings + a 48D color histogram + category filter, tuned across 300 Optuna trials — surprising finding: the 48D histogram outperformed a 2048D ResNet50. Ran 27 configurations across CLIP, DINOv2, ResNet50, and EfficientNet; the category filter alone gave +6.9pp R@1 with zero new features and never made any query worse.</p>
+        <div class="project-tech"><span>Python</span><span>CLIP</span><span>FAISS</span><span>FastAPI</span><span>Docker</span><span>Streamlit</span><span>OpenCV</span><span>Optuna</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> R@1 = 0.683 / R@10 = 0.913</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Sub-ms search</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 27 configs benchmarked</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/Mark007-R/Visual-Product-Search-Engine" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
       </div>
 
       <div class="project-card reveal">
@@ -635,15 +653,15 @@
           <div class="project-name"><i class="fa-solid fa-heart-pulse" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>MatchMind</div>
           <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> Live</span>
         </div>
-        <p class="project-desc">Hybrid dating recommendation system combining HNSW-indexed semantic vector search with cross-encoder reranking. Two-stage retrieval pipeline surfacing top-10 matches from 100 candidates.</p>
-        <div class="project-tech"><span>Python</span><span>Streamlit</span><span>SentenceTransformers</span><span>CrossEncoder</span><span>Qdrant</span><span>MySQL</span></div>
+        <p class="project-desc">Hybrid dating recommendation system that uses HNSW vector search to pull candidates and a cross-encoder to rerank them. Turned structured user profiles into natural-language descriptions, embedded with nomic-embed-text-v1.5 (768D), and stored everything in a cloud-hosted Qdrant. Two-stage pipeline pulls top 10 matches out of 100 candidates — far fewer irrelevant results than single-stage search. Deployed end-to-end with an SSL-secured MySQL backend; match quality measured via Ollama-based LLM evaluation.</p>
+        <div class="project-tech"><span>Python</span><span>Streamlit</span><span>SentenceTransformers</span><span>CrossEncoder</span><span>Qdrant</span><span>MySQL</span><span>SQLAlchemy</span></div>
         <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Deployed on HuggingFace</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Live on Hugging Face</div>
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 768-dim embeddings</div>
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Two-stage retrieval</div>
         </div>
         <div class="project-links">
-          <a href="https://github.com/Mark007-R/MatchMind-Dating_Profile_Recommendation_System" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+          <a href="https://github.com/Mark007-R/MatchMind" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
           <a href="https://ultron3002-mindmatch.hf.space" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
         </div>
       </div>
@@ -720,17 +738,32 @@
       <div class="timeline-item reveal">
         <div class="timeline-header">
           <div>
+            <div class="timeline-role">Junior AI Engineer <span class="timeline-type">Full-time</span></div>
+            <div class="timeline-company">ComplAIBridge</div>
+          </div>
+          <div class="timeline-date">Apr 2026 -- Present</div>
+        </div>
+        <ul class="timeline-details">
+          <li>Built a production REST API backend that pulls structured data out of broker remittance emails and bank statements across multiple formats — PDFs, spreadsheets, CSVs, and scanned images</li>
+          <li>Designed the document ingestion pipeline, mixing layout-aware PDF parsing, OCR for scanned images, and automatic column detection for spreadsheet statements</li>
+          <li>Wrote the LLM extraction layer with schema-validated JSON output, per-row confidence scores, and an automated reconciliation check that flags mismatched totals or missing fields for human review</li>
+          <li>Built API endpoints that plug straight into the client's existing email infrastructure, with a swappable LLM backend that points at either a cloud model or a self-hosted one through environment variables</li>
+        </ul>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-header">
+          <div>
             <div class="timeline-role">AI Data Trainer <span class="timeline-type">Contract</span></div>
             <div class="timeline-company">Innodata Inc.</div>
           </div>
           <div class="timeline-date">Nov 2025 -- Jan 2026</div>
         </div>
         <ul class="timeline-details">
-          <li>Annotated and labeled large-scale text and image datasets for supervised AI model training</li>
-          <li>Performed LLM instruction tuning via prompt creation, editing, and response refinement</li>
-          <li>Supported computer vision labeling of human attributes and visual elements</li>
-          <li>Conducted AI output review, error correction, and structured feedback for model improvement</li>
-          <li>Maintained high-quality standards within a production AI pipeline</li>
+          <li>Annotated and labeled large-scale text and image datasets used to train supervised AI models</li>
+          <li>Did LLM instruction tuning — writing and editing prompts, refining model responses</li>
+          <li>Helped with computer vision labeling on human attributes and visual elements</li>
+          <li>Reviewed AI outputs, corrected errors, and gave structured feedback the team used to improve the models</li>
+          <li>Kept everything within the quality bar of a production AI pipeline</li>
         </ul>
       </div>
 
