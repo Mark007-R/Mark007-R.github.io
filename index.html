@@ -592,32 +592,17 @@
 
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-name"><i class="fa-solid fa-shield-halved" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Fraud Detection System</div>
+          <div class="project-name"><i class="fa-solid fa-shield-halved" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Sentinel</div>
           <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> New</span>
         </div>
-        <p class="project-desc">Production fraud detection pipeline on 1.05M credit-card transactions (only 0.57% fraud). CatBoost + XGBoost + LightGBM ensemble hitting AUPRC = 0.984 on a temporal test split. 53 behavioral features (per-card spending velocity, amount z-scores, time-of-day, location signals) jumped AUPRC from 0.876 to 0.982 — far more impact than hyperparameter tuning. Beat a general-purpose LLM baseline head-to-head: F1 = 1.000 vs 0.864, ~240,000× faster (0.1 ms vs 24 s).</p>
-        <div class="project-tech"><span>Python</span><span>CatBoost</span><span>XGBoost</span><span>LightGBM</span><span>FastAPI</span><span>Docker</span><span>SHAP</span><span>Streamlit</span></div>
+        <p class="project-desc">End-to-end fraud detection MLOps stack for payment transactions. XGBoost training with DVC-versioned data and MLflow registry, distributed (Dask) + Pandas behavioral feature engineering with bit-exact parity, KS+PSI drift detection with auto-retrain trigger, and a FastAPI service that fires async shadow predictions against the staging model. Includes a multi-page Streamlit dashboard and a 21-day production MLOps sprint that fixed two leakage paths and tied AutoGluon's OOT AUC.</p>
+        <div class="project-tech"><span>Python</span><span>XGBoost</span><span>Dask</span><span>DVC</span><span>MLflow</span><span>FastAPI</span><span>Postgres</span><span>Streamlit</span><span>Optuna</span></div>
         <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> AUPRC = 0.984</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 0.1 ms / prediction</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 46 regression tests</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Drift detect &rarr; promote in ~18s</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 4ms alias-flip rollback</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Bit-exact Pandas/Dask</div>
         </div>
-        <div class="project-links"><a href="https://github.com/Mark007-R/Fraud-Detection-System" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-name"><i class="fa-solid fa-image" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Visual Product Search Engine</div>
-          <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> New</span>
-        </div>
-        <p class="project-desc">Image-only fashion search on the DeepFashion In-Shop benchmark (300 products, 1,027 queries) hitting R@1 = 0.683 and R@10 = 0.913 with sub-millisecond search. CLIP embeddings + a 48D color histogram + category filter, tuned across 300 Optuna trials — surprising finding: the 48D histogram outperformed a 2048D ResNet50. Ran 27 configurations across CLIP, DINOv2, ResNet50, and EfficientNet; the category filter alone gave +6.9pp R@1 with zero new features and never made any query worse.</p>
-        <div class="project-tech"><span>Python</span><span>CLIP</span><span>FAISS</span><span>FastAPI</span><span>Docker</span><span>Streamlit</span><span>OpenCV</span><span>Optuna</span></div>
-        <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> R@1 = 0.683 / R@10 = 0.913</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Sub-ms search</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 27 configs benchmarked</div>
-        </div>
-        <div class="project-links"><a href="https://github.com/Mark007-R/Visual-Product-Search-Engine" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+        <div class="project-links"><a href="https://github.com/Mark007-R/Sentinel" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
       </div>
 
       <div class="project-card reveal">
@@ -650,28 +635,24 @@
 
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-name"><i class="fa-solid fa-heart-pulse" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>MatchMind</div>
-          <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> Live</span>
+          <div class="project-name"><i class="fa-solid fa-diagram-project" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>DiagraMine</div>
         </div>
-        <p class="project-desc">Hybrid dating recommendation system that uses HNSW vector search to pull candidates and a cross-encoder to rerank them. Turned structured user profiles into natural-language descriptions, embedded with nomic-embed-text-v1.5 (768D), and stored everything in a cloud-hosted Qdrant. Two-stage pipeline pulls top 10 matches out of 100 candidates — far fewer irrelevant results than single-stage search. Deployed end-to-end with an SSL-secured MySQL backend; match quality measured via Ollama-based LLM evaluation.</p>
-        <div class="project-tech"><span>Python</span><span>Streamlit</span><span>SentenceTransformers</span><span>CrossEncoder</span><span>Qdrant</span><span>MySQL</span><span>SQLAlchemy</span></div>
+        <p class="project-desc">Extracts the structure of architecture diagrams automatically — detects text labels, component boxes, connectors, and icons, then emits annotated images, relationship graphs, and structured JSON/CSV that downstream tools can consume.</p>
+        <div class="project-tech"><span>Python</span><span>OpenCV</span><span>OCR</span><span>Computer Vision</span></div>
         <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Live on Hugging Face</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 768-dim embeddings</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Two-stage retrieval</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Annotated outputs</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Relationship graphs</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> JSON/CSV export</div>
         </div>
-        <div class="project-links">
-          <a href="https://github.com/Mark007-R/MatchMind" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
-          <a href="https://ultron3002-mindmatch.hf.space" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
-        </div>
+        <div class="project-links"><a href="https://github.com/Mark007-R/DiagraMine" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
       </div>
 
       <div class="project-card reveal">
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-file-lines" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>RAG_LEO</div>
         </div>
-        <p class="project-desc">Flask-based Retrieval-Augmented Generation app using FAISS, SentenceTransformers, and LLMs (Llama/Claude) for document question answering. Upload PDFs, retrieve relevant text, and get AI-generated answers.</p>
-        <div class="project-tech"><span>Python</span><span>Flask</span><span>FAISS</span><span>SentenceTransformers</span><span>LLaMA</span><span>Claude</span></div>
+        <p class="project-desc">Flask-based Retrieval-Augmented Generation app using FAISS, SentenceTransformers, and a pluggable LLM backend for document question answering. Upload PDFs, retrieve relevant chunks, and get grounded AI-generated answers.</p>
+        <div class="project-tech"><span>Python</span><span>Flask</span><span>FAISS</span><span>SentenceTransformers</span><span>LLaMA</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> PDF document QA</div>
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Multi-LLM support</div>
@@ -692,20 +673,6 @@
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Sentiment analysis</div>
         </div>
         <div class="project-links"><a href="https://github.com/Mark007-R/StockAI" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-header">
-          <div class="project-name"><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>CodeSageAI</div>
-        </div>
-        <p class="project-desc">AI-powered Code Documentation & Review Assistant that automatically analyzes source code, generates clear documentation, and provides actionable improvement suggestions using transformer-based language models.</p>
-        <div class="project-tech"><span>Python</span><span>Transformers</span><span>Fine-tuning</span><span>ML Pipeline</span></div>
-        <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Auto documentation</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Code review</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Model fine-tuning</div>
-        </div>
-        <div class="project-links"><a href="https://github.com/Mark007-R/CodeSageAI" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
       </div>
 
       <div class="project-card reveal">
