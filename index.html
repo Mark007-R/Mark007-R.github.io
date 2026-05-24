@@ -274,6 +274,26 @@
       border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em;
     }
     .badge-live { background: rgba(63,185,80,0.12); color: var(--accent-secondary); border: 1px solid rgba(63,185,80,0.25); }
+    .badge-private { background: rgba(139,148,158,0.10); color: var(--text-secondary); border: 1px solid rgba(139,148,158,0.25); }
+    .badge-work { background: rgba(188,140,255,0.10); color: #bc8cff; border: 1px solid rgba(188,140,255,0.25); }
+    .badge-contrib { background: rgba(88,166,255,0.10); color: var(--accent); border: 1px solid rgba(88,166,255,0.25); }
+    .projects-subsection {
+      font-family: var(--font-mono);
+      font-size: 0.82rem; color: var(--accent); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 24px; margin-top: 56px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .projects-subsection:first-of-type { margin-top: 0; }
+    .projects-subsection::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+    .projects-subsection-note {
+      font-family: var(--font-body); color: var(--text-muted);
+      font-size: 0.78rem; font-weight: 400; text-transform: none; letter-spacing: 0;
+      margin-left: 4px;
+    }
     .project-desc { color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 20px; line-height: 1.75; flex: 1; }
     .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
     .project-tech span {
@@ -586,14 +606,29 @@
 
 <section id="projects">
   <div class="section-inner">
-    <div class="section-label reveal">03. Featured Projects</div>
+    <div class="section-label reveal">03. Projects &amp; Work</div>
     <div class="section-divider reveal"></div>
+
+    <div class="projects-subsection reveal">My Projects <span class="projects-subsection-note">— from github.com/Mark007-R</span></div>
     <div class="projects-grid">
 
       <div class="project-card reveal">
         <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-brain" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>PennyCore</div>
+          <span class="project-badge badge-private"><i class="fa-solid fa-lock" style="font-size:0.55rem;margin-right:4px"></i> Private</span>
+        </div>
+        <p class="project-desc">Production-grade AI infrastructure for customer-service agents in regulated industries — a `context_engine` memory layer and an `orchestrator` decision layer with multi-tenant isolation, idempotent ingestion, audit-chain immutability, and a rule-based approval queue. Currently mid-Phase 4 (Hardening) of a 35-day build; 543 tests passing, race-condition fixes shipped, idempotency/tenant-leak surfaces closed.</p>
+        <div class="project-tech"><span>Python</span><span>FastAPI</span><span>Postgres</span><span>SQLAlchemy</span><span>pytest</span><span>Docker</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 543 tests passing</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Multi-tenant isolation</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Idempotent ingestion</div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-shield-halved" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Sentinel</div>
-          <span class="project-badge badge-live"><i class="fa-solid fa-circle" style="font-size:0.45rem;margin-right:3px"></i> New</span>
         </div>
         <p class="project-desc">End-to-end fraud detection MLOps stack for payment transactions. XGBoost training with DVC-versioned data and MLflow registry, distributed (Dask) + Pandas behavioral feature engineering with bit-exact parity, KS+PSI drift detection with auto-retrain trigger, and a FastAPI service that fires async shadow predictions against the staging model. Includes a multi-page Streamlit dashboard and a 21-day production MLOps sprint that fixed two leakage paths and tied AutoGluon's OOT AUC.</p>
         <div class="project-tech"><span>Python</span><span>XGBoost</span><span>Dask</span><span>DVC</span><span>MLflow</span><span>FastAPI</span><span>Postgres</span><span>Streamlit</span><span>Optuna</span></div>
@@ -649,6 +684,20 @@
 
       <div class="project-card reveal">
         <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-robot" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>QuestAgent</div>
+        </div>
+        <p class="project-desc">CodeReview Agent — a specialized AI agent that reviews code for bugs, security vulnerabilities, and performance issues, returning structured JSON findings with severity ratings and line-specific fixes.</p>
+        <div class="project-tech"><span>Python</span><span>AI Agents</span><span>Code Analysis</span><span>JSON</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Automated code review</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Security scanning</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Structured findings</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/Mark007-R/QuestAgent" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-file-lines" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>RAG_LEO</div>
         </div>
         <p class="project-desc">Flask-based Retrieval-Augmented Generation app using FAISS, SentenceTransformers, and a pluggable LLM backend for document question answering. Upload PDFs, retrieve relevant chunks, and get grounded AI-generated answers.</p>
@@ -665,7 +714,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-chart-line" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>StockAI</div>
         </div>
-        <p class="project-desc">AI-powered Streamlit & Flask app that predicts stock prices using LSTM, with live news, sentiment analysis, and correlation insights for smarter investment decisions.</p>
+        <p class="project-desc">AI-powered Streamlit &amp; Flask app that predicts stock prices using LSTM, with live news, sentiment analysis, and correlation insights for smarter investment decisions.</p>
         <div class="project-tech"><span>Python</span><span>Streamlit</span><span>Flask</span><span>LSTM</span><span>TensorFlow</span><span>NLP</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> LSTM predictions</div>
@@ -675,21 +724,121 @@
         <div class="project-links"><a href="https://github.com/Mark007-R/StockAI" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
       </div>
 
+    </div>
+
+    <div class="projects-subsection reveal">Work at ComplAIBridge <span class="projects-subsection-note">— Junior AI Engineer, Apr 2026 – Present</span></div>
+    <div class="projects-grid">
+
       <div class="project-card reveal">
         <div class="project-header">
-          <div class="project-name"><i class="fa-solid fa-robot" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>QuestAgent</div>
+          <div class="project-name"><i class="fa-solid fa-envelope-open-text" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>AI Email Parser</div>
+          <span class="project-badge badge-work"><i class="fa-solid fa-briefcase" style="font-size:0.55rem;margin-right:4px"></i> Work</span>
         </div>
-        <p class="project-desc">CodeReview Agent — a specialized AI agent that reviews code for bugs, security vulnerabilities, and performance issues, returning structured JSON findings with severity ratings and line-specific fixes.</p>
-        <div class="project-tech"><span>Python</span><span>AI Agents</span><span>Code Analysis</span><span>JSON</span></div>
+        <p class="project-desc">Designed and shipped the entire FastAPI backend that turns broker remittance emails and bank statements into structured JSON, plus a stateless three-way match endpoint that reconciles emails, open receivables, and bank credits. Layout-aware PDF parsing, OCR for scanned images, automatic column detection for spreadsheet statements, schema-validated LLM extraction with per-row confidence scores and an automated reconciliation check that flags mismatched totals for human review. Swappable LLM backend via env vars (cloud or self-hosted).</p>
+        <div class="project-tech"><span>Python</span><span>FastAPI</span><span>Pydantic</span><span>Docling</span><span>OCR</span><span>Azure AI Foundry</span></div>
         <div class="project-metrics">
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Automated code review</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Security scanning</div>
-          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Structured findings</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 5 extraction endpoints</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Multi-format ingest (PDF/XLSX/CSV/image)</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Three-way match + reconciliation</div>
         </div>
-        <div class="project-links"><a href="https://github.com/Mark007-R/QuestAgent" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-arrows-to-dot" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>AI Demo Backend</div>
+          <span class="project-badge badge-work"><i class="fa-solid fa-briefcase" style="font-size:0.55rem;margin-right:4px"></i> Work</span>
+        </div>
+        <p class="project-desc">Org-wide ML demo backend. Owned the Jira-integration module (project/issue sync + control-state findings) and the GitHub PR-diff module (turns PR diffs into structured control + compliance state findings). Replaced the legacy arrow detector with a new scan + OCR + arrow detection + region detection + VLM pipeline that handles both icon-level arrows and full-image arrow connections. Also fixed a Flask app-context bug in parallel ThreadPoolExecutor workers.</p>
+        <div class="project-tech"><span>Python</span><span>Flask</span><span>OpenCV</span><span>OCR</span><span>VLM</span><span>Jira API</span><span>GitHub API</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Jira sync + findings</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> PR-diff control mapping</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Arrow + region detector</div>
+        </div>
       </div>
 
     </div>
+
+    <div class="projects-subsection reveal">Open-Source Contributions <span class="projects-subsection-note">— shipped phases on a 5-project YC-style portfolio</span></div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-credit-card" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Fraud Detection System</div>
+          <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
+        </div>
+        <p class="project-desc">Shipped Phases 1–7: temporal-split audit, imbalance face-off (spw=5 beats SMOTE/ADASYN by +0.029 AUPRC), 53-feature behavioral stack, group ablation + stacking + calibration with a frontier LLM head-to-head (CatBoost F1=1.000 vs LLM 0.864, ~240,000× faster, ~45,000× cheaper), Phase-5 ensemble productionised with a Streamlit demo, latency benchmark, and Phase-7 final polish (94 tests + FastAPI + Docker + CI + final report).</p>
+        <div class="project-tech"><span>Python</span><span>CatBoost</span><span>XGBoost</span><span>LightGBM</span><span>FastAPI</span><span>Docker</span><span>SHAP</span><span>Streamlit</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> CatBoost F1 = 1.000</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 94 regression tests</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 7 merged PRs</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/anthonyrodrigues443/Fraud-Detection-System" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-image" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Visual Product Search Engine</div>
+          <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
+        </div>
+        <p class="project-desc">Shipped the visual-only retrieval path on the DeepFashion In-Shop benchmark (300 products, 1,027 queries): CLIP image embeddings + a 48D color histogram + category filter tuned over 300 Optuna trials, surprising finding that 48D color outperformed 2048D ResNet50. Phase-7 polish (30 new tests + FastAPI + Docker + CI + final report) and a Streamlit UI redesigned as visual-only with image-upload + score visualization.</p>
+        <div class="project-tech"><span>Python</span><span>CLIP</span><span>FAISS</span><span>FastAPI</span><span>Docker</span><span>Streamlit</span><span>OpenCV</span><span>Optuna</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> R@1 = 0.683</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Sub-ms search</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 12 visual-only configs</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/anthonyrodrigues443/Visual-Product-Search-Engine" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-flask-vial" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Drug Molecule Property Prediction</div>
+          <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
+        </div>
+        <p class="project-desc">Shipped Phases 4–7: Optuna tuning that surfaced scaffold-split hyperparameter overfitting, the finding that Lipinski violators are 2× easier to classify, a 3-model ensemble matching GNN+Edge with fragment features removed (+0.026), and the SHAP/LIME comparison (96% per-molecule disagreement — compliant actives 3.3% recall vs violators 54.3%). Phase 7 closed with a 50/50-test Streamlit UI shipping SHAP and Lipinski explainers.</p>
+        <div class="project-tech"><span>Python</span><span>RDKit</span><span>GNN</span><span>Optuna</span><span>SHAP</span><span>LIME</span><span>Streamlit</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Ensemble matches GNN+Edge</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 50/50 tests passing</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> SHAP + LIME comparison</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/anthonyrodrigues443/Drug-Molecule-Property-Prediction" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-heart-pulse" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Healthcare Readmission Predictor</div>
+          <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
+        </div>
+        <p class="project-desc">Shipped Phase 1 (dataset + EDA + baseline — workflow SVM nearly matches a clinical LogReg), Phase 3 (transition-risk feature engineering — raw discharge detail still wins), Phase 5 (subgroup thresholds for first-timer readmissions beat blunt class weighting), and the Phase-6 explainability deep dive (53% of SHAP comes from Utilization + Discharge features).</p>
+        <div class="project-tech"><span>Python</span><span>XGBoost</span><span>SHAP</span><span>Pandas</span><span>Scikit-learn</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Subgroup-threshold routing</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 53% SHAP from 2 features</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 4 merged PRs</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/anthonyrodrigues443/Healthcare-Readmission-Predictor" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-scale-balanced" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Legal Contract Analyzer</div>
+          <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
+        </div>
+        <p class="project-desc">Shipped Phases 3–7: feature ceiling work (Word+Char beats RoBERTa-large on macro-F1, sliding-window improves Non-Compete by +0.090), Phase-4 hyperparameter tuning + error analysis (LightGBM 0.6656 vs RoBERTa 0.650), Phase-5 ablation + blend + LLM comparison (blend 0.6907, LGBM beats a frontier LLM by 3× on HR-F1), and a Phase-6 production pipeline that hit macro-F1 = 0.7163 (+0.066 over RoBERTa). Phase 7 closed with 64/64 tests passing.</p>
+        <div class="project-tech"><span>Python</span><span>LightGBM</span><span>RoBERTa</span><span>scikit-learn</span><span>Optuna</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Macro-F1 = 0.7163</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Beats RoBERTa by +0.066</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 64/64 tests</div>
+        </div>
+        <div class="project-links"><a href="https://github.com/anthonyrodrigues443/Legal-Contract-Analyzer" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+    </div>
+
     <div class="projects-footer reveal">
       <a href="https://github.com/Mark007-R" target="_blank">View all repositories on GitHub <i class="fa-solid fa-arrow-right"></i></a>
     </div>
