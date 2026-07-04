@@ -617,7 +617,7 @@
           <div class="project-name"><i class="fa-solid fa-brain" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>PennyCore</div>
           <span class="project-badge badge-private"><i class="fa-solid fa-lock" style="font-size:0.55rem;margin-right:4px"></i> Private</span>
         </div>
-        <p class="project-desc">Production-grade AI infrastructure for customer-service agents in regulated industries — a `context_engine` memory layer and an `orchestrator` decision layer with multi-tenant isolation, idempotent ingestion, audit-chain immutability, and a rule-based approval queue. Currently mid-Phase 4 (Hardening) of a 35-day build; 543 tests passing, race-condition fixes shipped, idempotency/tenant-leak surfaces closed.</p>
+        <p class="project-desc">AI infrastructure that gives customer-service agents in regulated industries a long-term memory and a safe, auditable way to make decisions — kept isolated per client, with a rule-based approval queue for sensitive actions. 543 tests passing.</p>
         <div class="project-tech"><span>Python</span><span>FastAPI</span><span>Postgres</span><span>SQLAlchemy</span><span>pytest</span><span>Docker</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 543 tests passing</div>
@@ -628,9 +628,23 @@
 
       <div class="project-card reveal">
         <div class="project-header">
+          <div class="project-name"><i class="fa-solid fa-wallet" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>FinTrack</div>
+        </div>
+        <p class="project-desc">A personal-finance app that scans your receipts, auto-sorts your spending into categories, flags unusual charges and forgotten subscriptions, and forecasts your cash flow — plus risk-profiled investment tips. Every feature is benchmarked against a frontier LLM and served from a secure, multi-tenant FastAPI backend.</p>
+        <div class="project-tech"><span>Python</span><span>FastAPI</span><span>scikit-learn</span><span>Prophet</span><span>OCR</span><span>JWT</span></div>
+        <div class="project-metrics">
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Receipt OCR + categorizer</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Anomaly + forecast</div>
+          <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 66 tests passing</div>
+        </div>
+        <div class="project-links"><a href="https://iambatman07-fintrack.hf.space" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a><a href="https://github.com/Mark007-R/FinTrack" target="_blank"><i class="fa-brands fa-github"></i> Code</a></div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-shield-halved" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Sentinel</div>
         </div>
-        <p class="project-desc">End-to-end fraud detection MLOps stack for payment transactions. XGBoost training with DVC-versioned data and MLflow registry, distributed (Dask) + Pandas behavioral feature engineering with bit-exact parity, KS+PSI drift detection with auto-retrain trigger, and a FastAPI service that fires async shadow predictions against the staging model. Includes a multi-page Streamlit dashboard and a 21-day production MLOps sprint that fixed two leakage paths and tied AutoGluon's OOT AUC.</p>
+        <p class="project-desc">A fraud-detection system for card payments, built as a full MLOps pipeline — it trains an XGBoost model, watches live data for drift, and automatically retrains itself when the patterns shift. Comes with a live dashboard for monitoring.</p>
         <div class="project-tech"><span>Python</span><span>XGBoost</span><span>Dask</span><span>DVC</span><span>MLflow</span><span>FastAPI</span><span>Postgres</span><span>Streamlit</span><span>Optuna</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Drift detect &rarr; promote in ~18s</div>
@@ -644,7 +658,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-utensils" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>RestoAI</div>
         </div>
-        <p class="project-desc">AI-powered platform processing 10,000+ restaurant reviews from Zomato datasets. Features sentiment analysis, complaint categorization using VADER, and a RAG-based conversational system using FAISS semantic search with sub-second query response times.</p>
+        <p class="project-desc">Reads 10,000+ restaurant reviews and turns them into insights — gauging sentiment, sorting complaints into categories, and letting you chat with a bot that answers questions about the reviews in under a second.</p>
         <div class="project-tech"><span>Python</span><span>Flask</span><span>FAISS</span><span>SentenceTransformers</span><span>VADER</span><span>Pandas</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 10,000+ reviews processed</div>
@@ -658,7 +672,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-film" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>CineSemantics</div>
         </div>
-        <p class="project-desc">Transformer-powered movie recommendation engine combining semantic text and visual poster search across 9,000+ movies. Integrated Milvus vector database with IVF_FLAT indexing, achieving similarity search with query latency under 100ms.</p>
+        <p class="project-desc">A movie recommender that searches 9,000+ films by meaning — describe a plot or upload a poster and it finds similar movies in under 100ms, matching on both story and visuals.</p>
         <div class="project-tech"><span>Python</span><span>Streamlit</span><span>Sentence Transformers</span><span>OpenAI CLIP</span><span>Milvus</span><span>PyTorch</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 9,000+ movies indexed</div>
@@ -672,7 +686,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-diagram-project" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>DiagraMine</div>
         </div>
-        <p class="project-desc">Extracts the structure of architecture diagrams automatically — detects text labels, component boxes, connectors, and icons, then emits annotated images, relationship graphs, and structured JSON/CSV that downstream tools can consume.</p>
+        <p class="project-desc">Reads architecture diagrams for you — finds the boxes, labels, and arrows automatically, then exports the whole structure as annotated images and clean JSON/CSV.</p>
         <div class="project-tech"><span>Python</span><span>OpenCV</span><span>OCR</span><span>Computer Vision</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Annotated outputs</div>
@@ -686,7 +700,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-robot" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>QuestAgent</div>
         </div>
-        <p class="project-desc">CodeReview Agent — a specialized AI agent that reviews code for bugs, security vulnerabilities, and performance issues, returning structured JSON findings with severity ratings and line-specific fixes.</p>
+        <p class="project-desc">An AI agent that reviews your code — it spots bugs, security holes, and slow spots, then hands back fixes with severity ratings and the exact lines to change.</p>
         <div class="project-tech"><span>Python</span><span>AI Agents</span><span>Code Analysis</span><span>JSON</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Automated code review</div>
@@ -700,7 +714,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-file-lines" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>RAG_LEO</div>
         </div>
-        <p class="project-desc">Flask-based Retrieval-Augmented Generation app using FAISS, SentenceTransformers, and a pluggable LLM backend for document question answering. Upload PDFs, retrieve relevant chunks, and get grounded AI-generated answers.</p>
+        <p class="project-desc">Upload a PDF and ask questions about it — the app finds the relevant passages and gives you grounded, source-backed answers instead of guesses.</p>
         <div class="project-tech"><span>Python</span><span>Flask</span><span>FAISS</span><span>SentenceTransformers</span><span>LLaMA</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> PDF document QA</div>
@@ -714,7 +728,7 @@
         <div class="project-header">
           <div class="project-name"><i class="fa-solid fa-chart-line" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>StockAI</div>
         </div>
-        <p class="project-desc">AI-powered Streamlit &amp; Flask app that predicts stock prices using LSTM, with live news, sentiment analysis, and correlation insights for smarter investment decisions.</p>
+        <p class="project-desc">Predicts stock prices with an LSTM model and pairs the forecast with live news and sentiment, so you get the full picture before making an investment decision.</p>
         <div class="project-tech"><span>Python</span><span>Streamlit</span><span>Flask</span><span>LSTM</span><span>TensorFlow</span><span>NLP</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> LSTM predictions</div>
@@ -734,7 +748,7 @@
           <div class="project-name"><i class="fa-solid fa-envelope-open-text" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>AI Email Parser</div>
           <span class="project-badge badge-work"><i class="fa-solid fa-briefcase" style="font-size:0.55rem;margin-right:4px"></i> Work</span>
         </div>
-        <p class="project-desc">Designed and shipped the entire FastAPI backend that turns broker remittance emails and bank statements into structured JSON, plus a stateless three-way match endpoint that reconciles emails, open receivables, and bank credits. Layout-aware PDF parsing, OCR for scanned images, automatic column detection for spreadsheet statements, schema-validated LLM extraction with per-row confidence scores and an automated reconciliation check that flags mismatched totals for human review. Swappable LLM backend via env vars (cloud or self-hosted).</p>
+        <p class="project-desc">Built the FastAPI backend that turns broker remittance emails and bank statements (PDFs, spreadsheets, scanned images) into clean JSON, then reconciles emails, receivables, and bank credits in a single three-way match — flagging any mismatches for a human to review.</p>
         <div class="project-tech"><span>Python</span><span>FastAPI</span><span>Pydantic</span><span>Docling</span><span>OCR</span><span>Azure AI Foundry</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> 5 extraction endpoints</div>
@@ -748,7 +762,7 @@
           <div class="project-name"><i class="fa-solid fa-arrows-to-dot" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>AI Demo Backend</div>
           <span class="project-badge badge-work"><i class="fa-solid fa-briefcase" style="font-size:0.55rem;margin-right:4px"></i> Work</span>
         </div>
-        <p class="project-desc">Org-wide ML demo backend. Owned the Jira-integration module (project/issue sync + control-state findings) and the GitHub PR-diff module (turns PR diffs into structured control + compliance state findings). Replaced the legacy arrow detector with a new scan + OCR + arrow detection + region detection + VLM pipeline that handles both icon-level arrows and full-image arrow connections. Also fixed a Flask app-context bug in parallel ThreadPoolExecutor workers.</p>
+        <p class="project-desc">Company-wide ML demo backend. I built the Jira sync, the module that turns GitHub PR diffs into compliance findings, and a new scan + OCR + arrow-detection pipeline that reads the connections in architecture diagrams.</p>
         <div class="project-tech"><span>Python</span><span>Flask</span><span>OpenCV</span><span>OCR</span><span>VLM</span><span>Jira API</span><span>GitHub API</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Jira sync + findings</div>
@@ -767,7 +781,7 @@
           <div class="project-name"><i class="fa-solid fa-credit-card" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Fraud Detection System</div>
           <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
         </div>
-        <p class="project-desc">Shipped Phases 1–7: temporal-split audit, imbalance face-off (spw=5 beats SMOTE/ADASYN by +0.029 AUPRC), 53-feature behavioral stack, group ablation + stacking + calibration with a frontier LLM head-to-head (CatBoost F1=1.000 vs LLM 0.864, ~240,000× faster, ~45,000× cheaper), Phase-5 ensemble productionised with a Streamlit demo, latency benchmark, and Phase-7 final polish (94 tests + FastAPI + Docker + CI + final report).</p>
+        <p class="project-desc">An open-source card-fraud detector I shipped Phases 1–7 of — feature engineering, model face-offs, and a head-to-head against a frontier LLM, ending with a CatBoost model that hit F1 = 1.000 while running ~240,000× faster and ~45,000× cheaper.</p>
         <div class="project-tech"><span>Python</span><span>CatBoost</span><span>XGBoost</span><span>LightGBM</span><span>FastAPI</span><span>Docker</span><span>SHAP</span><span>Streamlit</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> CatBoost F1 = 1.000</div>
@@ -782,7 +796,7 @@
           <div class="project-name"><i class="fa-solid fa-image" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Visual Product Search Engine</div>
           <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
         </div>
-        <p class="project-desc">Shipped the visual-only retrieval path on the DeepFashion In-Shop benchmark (300 products, 1,027 queries): CLIP image embeddings + a 48D color histogram + category filter tuned over 300 Optuna trials, surprising finding that 48D color outperformed 2048D ResNet50. Phase-7 polish (30 new tests + FastAPI + Docker + CI + final report) and a Streamlit UI redesigned as visual-only with image-upload + score visualization.</p>
+        <p class="project-desc">Search fashion products by image — I built the visual-search path using CLIP embeddings plus a color histogram, tuned over 300 trials. The surprise finding: a tiny 48D color feature beat a 2048D ResNet50.</p>
         <div class="project-tech"><span>Python</span><span>CLIP</span><span>FAISS</span><span>FastAPI</span><span>Docker</span><span>Streamlit</span><span>OpenCV</span><span>Optuna</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> R@1 = 0.683</div>
@@ -797,7 +811,7 @@
           <div class="project-name"><i class="fa-solid fa-flask-vial" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Drug Molecule Property Prediction</div>
           <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
         </div>
-        <p class="project-desc">Shipped Phases 4–7: Optuna tuning that surfaced scaffold-split hyperparameter overfitting, the finding that Lipinski violators are 2× easier to classify, a 3-model ensemble matching GNN+Edge with fragment features removed (+0.026), and the SHAP/LIME comparison (96% per-molecule disagreement — compliant actives 3.3% recall vs violators 54.3%). Phase 7 closed with a 50/50-test Streamlit UI shipping SHAP and Lipinski explainers.</p>
+        <p class="project-desc">Predicts a drug molecule's properties straight from its structure — I shipped Phases 4–7, including a 3-model ensemble that matches a graph neural network and a SHAP-vs-LIME study of why the model makes each call.</p>
         <div class="project-tech"><span>Python</span><span>RDKit</span><span>GNN</span><span>Optuna</span><span>SHAP</span><span>LIME</span><span>Streamlit</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Ensemble matches GNN+Edge</div>
@@ -812,7 +826,7 @@
           <div class="project-name"><i class="fa-solid fa-heart-pulse" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Healthcare Readmission Predictor</div>
           <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
         </div>
-        <p class="project-desc">Shipped Phase 1 (dataset + EDA + baseline — workflow SVM nearly matches a clinical LogReg), Phase 3 (transition-risk feature engineering — raw discharge detail still wins), Phase 5 (subgroup thresholds for first-timer readmissions beat blunt class weighting), and the Phase-6 explainability deep dive (53% of SHAP comes from Utilization + Discharge features).</p>
+        <p class="project-desc">Predicts which patients are likely to be readmitted to hospital — I shipped the dataset and EDA, the feature engineering, per-subgroup risk thresholds, and a SHAP deep dive into what actually drives the risk.</p>
         <div class="project-tech"><span>Python</span><span>XGBoost</span><span>SHAP</span><span>Pandas</span><span>Scikit-learn</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Subgroup-threshold routing</div>
@@ -827,7 +841,7 @@
           <div class="project-name"><i class="fa-solid fa-scale-balanced" style="color:var(--accent);margin-right:8px;font-size:0.9rem"></i>Legal Contract Analyzer</div>
           <span class="project-badge badge-contrib"><i class="fa-solid fa-code-branch" style="font-size:0.55rem;margin-right:4px"></i> Contributor</span>
         </div>
-        <p class="project-desc">Shipped Phases 3–7: feature ceiling work (Word+Char beats RoBERTa-large on macro-F1, sliding-window improves Non-Compete by +0.090), Phase-4 hyperparameter tuning + error analysis (LightGBM 0.6656 vs RoBERTa 0.650), Phase-5 ablation + blend + LLM comparison (blend 0.6907, LGBM beats a frontier LLM by 3× on HR-F1), and a Phase-6 production pipeline that hit macro-F1 = 0.7163 (+0.066 over RoBERTa). Phase 7 closed with 64/64 tests passing.</p>
+        <p class="project-desc">Classifies the clauses inside legal contracts — I shipped Phases 3–7, where a tuned LightGBM blend reached macro-F1 0.72, beating both RoBERTa-large and a frontier LLM.</p>
         <div class="project-tech"><span>Python</span><span>LightGBM</span><span>RoBERTa</span><span>scikit-learn</span><span>Optuna</span></div>
         <div class="project-metrics">
           <div class="project-metric"><i class="fa-solid fa-check-circle"></i> Macro-F1 = 0.7163</div>
