@@ -399,7 +399,10 @@
     }
     .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
     .card.hide { display: none; }
-    .card-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+    .card-media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg-3); border-bottom: 1px solid var(--line); }
+    .card-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s var(--ease); }
+    .card:hover .card-media img { transform: scale(1.04); }
+    .card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
     .card-body .kicker { margin-bottom: 10px; font-size: 0.62rem; }
     .card h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.22rem; letter-spacing: -0.015em; line-height: 1.25; margin-bottom: 10px; }
     .card p { color: var(--ink-2); font-size: 0.88rem; line-height: 1.75; margin-bottom: 18px; flex: 1; }
@@ -810,7 +813,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
       <a class="feature-media" href="https://github.com/Mark007-R/CrewML" target="_blank" rel="noopener">
         <div class="frame">
           <div class="frame-bar"><i></i><i></i><i></i><em>github.com/Mark007-R/CrewML</em></div>
-          <img src="assets/projects/crewml.webp" alt="CrewML dashboard after a finished run: all seven agents done, CV score 0.9651, holdout still sealed" loading="lazy" width="1200" height="750" />
+          <img src="assets/projects/crewml.webp" alt="CrewML dashboard home: the seven-agent pipeline, run options and a connected API with 10 datasets" loading="lazy" width="1200" height="750" />
         </div>
       </a>
       <div class="feature-body">
@@ -883,6 +886,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
     </div>
     <div class="grid">
       <article class="card reveal">
+        <div class="card-media"><img src="assets/projects/customer-ops.webp" alt="Approver dashboard with a pending action awaiting two approvals and the audit log" loading="lazy" width="960" height="600" /></div>
         <div class="card-body">
           <div class="kicker">Agents &middot; Regulated finance</div>
           <h4>AI-Customer-Ops-Engine</h4>
@@ -892,6 +896,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
+        <div class="card-media"><img src="assets/projects/stock.webp" alt="Stock Price Predictor home page with ticker and horizon inputs" loading="lazy" width="960" height="600" /></div>
         <div class="card-body">
           <div class="kicker">Time series &middot; Honest negative</div>
           <h4>Stock-Price-Forecaster</h4>
@@ -901,6 +906,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
+        <div class="card-media"><img src="assets/projects/diagram.webp" alt="DiagraMine home page with pipeline settings and a diagram upload area" loading="lazy" width="960" height="600" /></div>
         <div class="card-body">
           <div class="kicker">Computer vision &middot; Document AI</div>
           <h4>Diagram-Structure-Extractor</h4>
@@ -910,6 +916,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
+        <div class="card-media"><img src="assets/projects/restaurant.webp" alt="RestoAI sign-in page" loading="lazy" width="960" height="600" /></div>
         <div class="card-body">
           <div class="kicker">NLP &middot; RAG</div>
           <h4>Restaurant-Intelligence-Platform</h4>
@@ -919,6 +926,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
+        <div class="card-media"><img src="assets/projects/data-analyst.webp" alt="DataAI home page with the dataset drop zone and the four analysis steps" loading="lazy" width="960" height="600" /></div>
         <div class="card-body">
           <div class="kicker">LLM tools &middot; Analytics</div>
           <h4>AI-Data-Analyst</h4>
@@ -928,6 +936,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
+        <div class="card-media"><img src="assets/projects/document-qa.webp" alt="RagLeo workspace with PDF upload, document list and question box" loading="lazy" width="960" height="600" /></div>
         <div class="card-body">
           <div class="kicker">RAG &middot; Documents</div>
           <h4>Document-QA-RAG</h4>
