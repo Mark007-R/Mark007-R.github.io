@@ -74,7 +74,7 @@
     :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
     .wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
-    .hero-grid > *, .feature > *, .grid > *, .bento > *, .about-grid > *, .path > *, .oss-grid > *, .section-head > * { min-width: 0; }
+    .hero-grid > *, .feature > *, .grid > *, .work-grid > *, .about-grid > *, .path > *, .oss-grid > *, .section-head > * { min-width: 0; }
     em.accent, .accent-i { font-style: italic; color: var(--accent); }
 
     /* ---------- nav ---------- */
@@ -399,17 +399,7 @@
     }
     .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--line-2); }
     .card.hide { display: none; }
-    .card-media { aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-3); border-bottom: 1px solid var(--line); }
-    .card-media img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.8s var(--ease); }
-    .card:hover .card-media img { transform: scale(1.04); }
-    .card-media.glyph {
-      display: grid; place-items: center; font-size: 2.2rem; color: var(--accent);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(142, 37, 54, 0.1), transparent 60%),
-        radial-gradient(circle at 75% 70%, rgba(217, 166, 138, 0.25), transparent 60%),
-        var(--bg-2);
-    }
-    .card-body { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+    .card-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
     .card-body .kicker { margin-bottom: 10px; font-size: 0.62rem; }
     .card h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.22rem; letter-spacing: -0.015em; line-height: 1.25; margin-bottom: 10px; }
     .card p { color: var(--ink-2); font-size: 0.88rem; line-height: 1.75; margin-bottom: 18px; flex: 1; }
@@ -465,9 +455,7 @@
       font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
       color: #f0b9c3; border: 1px solid rgba(240, 185, 195, 0.35); padding: 7px 14px; border-radius: 999px; white-space: nowrap;
     }
-    .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .build.wide { grid-column: span 2; background: linear-gradient(135deg, var(--card) 0%, var(--bg-2) 100%); }
-    .build.wide p { max-width: 640px; }
+    .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .build {
       background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
       padding: 28px; box-shadow: var(--shadow-sm); position: relative; overflow: hidden;
@@ -487,7 +475,7 @@
     }
     .build:hover .ico { background: var(--accent); color: var(--bg); transform: rotate(-6deg); }
     .build h4 { font-family: var(--font-display); font-weight: 600; font-size: 1.18rem; letter-spacing: -0.015em; line-height: 1.3; margin-bottom: 10px; }
-    .build p { color: var(--ink-2); font-size: 0.88rem; line-height: 1.75; margin-bottom: 18px; }
+    .build p { color: var(--ink-2); font-size: 0.88rem; line-height: 1.75; }
 
     .path { margin-top: 88px; display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; }
     .path h3 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.2rem); letter-spacing: -0.02em; line-height: 1.15; margin-top: 16px; }
@@ -633,8 +621,7 @@
 
     /* ---------- responsive ---------- */
     @media (max-width: 1080px) {
-      .grid, .bento { grid-template-columns: repeat(2, 1fr); }
-      .bento .build:last-child { grid-column: span 2; }
+      .grid, .work-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 900px) {
       :root { --gutter: 20px; }
@@ -665,8 +652,7 @@
       .contact-card { padding: 64px 28px; border-radius: 24px; }
     }
     @media (max-width: 640px) {
-      .grid, .bento { grid-template-columns: 1fr; }
-      .build.wide, .bento .build:last-child { grid-column: auto; }
+      .grid, .work-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr; gap: 8px; }
       .stats div { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; padding: 12px 16px; }
       .stats dt { font-size: 1.25rem; }
@@ -712,7 +698,7 @@
       <div class="hero-text">
         <div class="hero-hello"><span class="mono">M</span><span>Hi, I'm <b>Mark Oliver Rodrigues</b>, an AI Engineer in Mumbai</span></div>
         <h1>I build AI that <em>holds up</em> when it's <span class="underline">measured<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 60 4, 140 4, 297 11" /></svg></span>.</h1>
-        <p class="hero-lead">AI Engineer at <b>ComplAIBridge</b>, building the AI behind a compliance platform. On my own time I ship multi-agent systems, MCP tooling and production ML, and I publish the held-out results, including the ones where the fancy model lost.</p>
+        <p class="hero-lead">I'm an AI Engineer at <b>ComplAIBridge</b>. Outside work I build multi-agent systems, MCP tooling and production ML, and I publish the held-out results, including the ones where the fancy model lost.</p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> See my projects</a>
           <a href="mailto:markrodrigues2689@gmail.com" class="btn btn-ghost"><i class="fa-regular fa-envelope"></i> Email me</a>
@@ -748,7 +734,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
     <div class="hero-facts">
       <div><strong>27</strong><span>public repositories</span></div>
       <div><strong>343</strong><span>pull requests merged</span></div>
-      <div><strong>1,000+</strong><span>installs of my library from PyPI</span></div>
+      <div><strong>3.5k+</strong><span>downloads of my library from PyPI</span></div>
       <div><strong>3</strong><span>live demos you can try today</span></div>
     </div>
   </div>
@@ -897,7 +883,6 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
     </div>
     <div class="grid">
       <article class="card reveal">
-        <div class="card-media"><img src="assets/projects/customer-ops.webp" alt="AI-Customer-Ops-Engine architecture: memory layer and decision layer sharing one audit log" loading="lazy" width="900" height="588" /></div>
         <div class="card-body">
           <div class="kicker">Agents &middot; Regulated finance</div>
           <h4>AI-Customer-Ops-Engine</h4>
@@ -907,7 +892,6 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
-        <div class="card-media"><img src="assets/projects/stock.webp" alt="Stock-Price-Forecaster architecture: walk-forward folds, six forecasters, cost-aware backtest" loading="lazy" width="900" height="562" /></div>
         <div class="card-body">
           <div class="kicker">Time series &middot; Honest negative</div>
           <h4>Stock-Price-Forecaster</h4>
@@ -917,7 +901,6 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
-        <div class="card-media"><img src="assets/projects/diagram.webp" alt="Diagram-Structure-Extractor pipeline: text, box, arrow and icon detectors feeding a graph builder" loading="lazy" width="900" height="551" /></div>
         <div class="card-body">
           <div class="kicker">Computer vision &middot; Document AI</div>
           <h4>Diagram-Structure-Extractor</h4>
@@ -927,7 +910,6 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
-        <div class="card-media"><img src="assets/projects/restaurant.webp" alt="Restaurant-Intelligence-Platform architecture: sentiment, complaint classifier and RAG chat" loading="lazy" width="900" height="551" /></div>
         <div class="card-body">
           <div class="kicker">NLP &middot; RAG</div>
           <h4>Restaurant-Intelligence-Platform</h4>
@@ -937,7 +919,6 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
-        <div class="card-media glyph"><i class="fa-solid fa-chart-column"></i></div>
         <div class="card-body">
           <div class="kicker">LLM tools &middot; Analytics</div>
           <h4>AI-Data-Analyst</h4>
@@ -947,7 +928,6 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </article>
       <article class="card reveal">
-        <div class="card-media glyph"><i class="fa-solid fa-file-lines"></i></div>
         <div class="card-body">
           <div class="kicker">RAG &middot; Documents</div>
           <h4>Document-QA-RAG</h4>
@@ -978,62 +958,39 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
     <div class="section-head reveal">
       <div>
         <span class="eyebrow">Work</span>
-        <h2>The AI behind a <em>compliance platform</em></h2>
+        <h2>What I do <em>day to day</em></h2>
       </div>
-      <p>At ComplAIBridge I build the services that check code, designs, cloud systems and chatbots against frameworks like ISO 27001, SOC 2, DORA and the EU AI Act, so regulated teams can see their gaps before an auditor does.</p>
     </div>
 
     <div class="role reveal">
       <div class="role-mark">C</div>
       <div>
         <h3>AI Engineer at <em>ComplAIBridge</em></h3>
-        <p>Full-time, from prototype to deployed API: six AI services, 50+ endpoints and 900+ automated tests across the repositories I own.</p>
+        <p>Full-time. I design, build and ship AI features for the company's products, from the first prototype to a tested service in production.</p>
       </div>
       <span class="when">Apr 2026 — now</span>
     </div>
 
-    <div class="bento">
-      <article class="build wide reveal">
-        <span class="ico"><i class="fa-solid fa-code-compare"></i></span>
-        <h4>AI-SDLC compliance engine</h4>
-        <p>Checks pull requests, commits, whole repositories and the AI prompts behind them against 31 compliance frameworks, about 2,500 controls in all. Each finding points to the file, the line, and whether a person or an AI session wrote it, so a coding agent can fix it.</p>
-        <ul class="chips"><li>FastAPI</li><li>GPT-4.1</li><li>GitHub API</li><li>Async jobs</li><li>708 tests</li></ul>
+    <div class="work-grid">
+      <article class="build reveal">
+        <span class="ico"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+        <h4>LLM-powered features</h4>
+        <p>Backend services that use large language models to analyse information and explain the results in plain language.</p>
       </article>
       <article class="build reveal">
-        <span class="ico"><i class="fa-solid fa-sitemap"></i></span>
-        <h4>Architecture &amp; design review</h4>
-        <p>Turns a GitHub repo into a layered architecture diagram, then explains which controls the design brings into scope and what changed between versions.</p>
-        <ul class="chips"><li>LLM graph extraction</li><li>Graphviz</li><li>Mermaid</li></ul>
-      </article>
-      <article class="build reveal">
-        <span class="ico"><i class="fa-solid fa-user-shield"></i></span>
-        <h4>Control-verification agent</h4>
-        <p>A tool-calling agent that runs written test procedures against live AWS, Azure, GitHub, Jira, Confluence and Freshservice, and returns an evidence-backed verdict per control.</p>
-        <ul class="chips"><li>Tool calling</li><li>boto3</li><li>Azure REST</li></ul>
-      </article>
-      <article class="build wide reveal">
         <span class="ico"><i class="fa-solid fa-comments"></i></span>
-        <h4>Project compliance assistant</h4>
-        <p>A chatbot that answers questions about a project's controls, gaps and evidence with cited sources and streamed replies. It tailors each answer to a developer, a CTO or a product lead, keeps every organisation's data separate with row-level security, and redacts personal data before anything reaches the model.</p>
-        <ul class="chips"><li>GPT-5</li><li>SSE streaming</li><li>PostgreSQL RLS</li><li>FAISS</li><li>Presidio</li></ul>
+        <h4>Assistants &amp; agents</h4>
+        <p>AI assistants and agents that answer questions with sources and work safely with real data.</p>
       </article>
       <article class="build reveal">
-        <span class="ico"><i class="fa-solid fa-robot"></i></span>
-        <h4>Chatbot compliance auditor</h4>
-        <p>Red-teams a live chatbot for jailbreaks, PII leaks, toxicity, bias and hallucination, then scores it against ISO 42001, NIST AI RMF, the EU AI Act and more.</p>
-        <ul class="chips"><li>Red-teaming</li><li>LLM-as-judge</li><li>140 tests</li></ul>
+        <span class="ico"><i class="fa-solid fa-file-lines"></i></span>
+        <h4>Document AI</h4>
+        <p>Turning messy documents and files into clean, structured data the rest of the product can use.</p>
       </article>
       <article class="build reveal">
-        <span class="ico"><i class="fa-solid fa-file-invoice-dollar"></i></span>
-        <h4>Document parsing &amp; reconciliation</h4>
-        <p>Pulls structured data out of remittance emails, scanned PDFs and bank statements, then matches each payment to the invoices it settles.</p>
-        <ul class="chips"><li>Docling</li><li>PaddleOCR</li><li>Azure AI Foundry</li></ul>
-      </article>
-      <article class="build reveal">
-        <span class="ico"><i class="fa-solid fa-satellite-dish"></i></span>
-        <h4>Risk &amp; regulation radar</h4>
-        <p>Scans live news for political, economic and legal risks, spots new versions of compliance frameworks, and estimates which controls each change affects.</p>
-        <ul class="chips"><li>PESTLE</li><li>News search</li><li>FAISS</li></ul>
+        <span class="ico"><i class="fa-solid fa-shield-halved"></i></span>
+        <h4>Safe, tested delivery</h4>
+        <p>Tests, guardrails and reviews so every feature is reliable and secure before it ships.</p>
       </article>
     </div>
 
@@ -1048,7 +1005,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         </div>
       </div>
       <ol class="path-list reveal">
-        <li><time>Apr 2026 — now</time><div><b>AI Engineer</b> &middot; <span class="org">ComplAIBridge</span><p>Full-time. The services above, from first prototype to deployed API.</p></div></li>
+        <li><time>Apr 2026 — now</time><div><b>AI Engineer</b> &middot; <span class="org">ComplAIBridge</span><p>Full-time. Building and shipping AI features for the company's products.</p></div></li>
         <li><time>May 2026</time><div><b>B.E. Computer Engineering, Honours in AI/ML</b> &middot; <span class="org">St. Francis Institute of Technology</span><p>Graduated with a CGPA of 7.85 / 10.</p></div></li>
         <li><time>Nov 2025 — Jan 2026</time><div><b>AI Data Trainer</b> &middot; <span class="org">Innodata</span><p>Contract. Wrote and refined LLM instruction-tuning data, labelled text and image datasets, and reviewed model outputs for quality.</p></div></li>
       </ol>
@@ -1071,7 +1028,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="oss-top">
           <span class="ico"><i class="fa-brands fa-python"></i></span>
           <div><h4>easy-mcp-kit</h4><small>pypi.org &middot; v0.3.1</small></div>
-          <div class="count"><strong>1,000+</strong><span>installs</span></div>
+          <div class="count"><strong>3.5k+</strong><span>downloads</span></div>
         </div>
         <p>Released and maintained by me, with a changelog, a security policy and CI on four Python versions. It's also listed in the <a href="https://github.com/hashgraph-online/awesome-ai-plugins" target="_blank" rel="noopener">awesome-ai-plugins</a> directory.</p>
       </div>
@@ -1108,7 +1065,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
     <div class="about-grid">
       <div class="reveal">
         <div class="about-text">
-          <p>I'm Mark, an AI Engineer in Mumbai. I graduated in Computer Engineering with Honours in AI/ML in 2026, and this year I've been building the AI behind ComplAIBridge's compliance platform.</p>
+          <p>I'm Mark, an AI Engineer in Mumbai. I graduated in Computer Engineering with Honours in AI/ML in 2026, and I now work as an AI Engineer at ComplAIBridge.</p>
           <p>What I care about most is whether a system actually works. That means a baseline before a model, a test set nobody tunes on, and writing the result down even when the fancy approach loses. Some of my favourite findings are the ones where a simple model beat the LLM.</p>
           <p>I'm open to AI/ML engineering roles where I can take on bigger problems with a strong team.</p>
         </div>
