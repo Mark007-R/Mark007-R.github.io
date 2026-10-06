@@ -368,6 +368,14 @@
       font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1; letter-spacing: -0.02em;
       margin-bottom: 16px;
     }
+    .app-name { display: flex; align-items: center; gap: 10px; margin: -4px 0 16px; }
+    .app-name span {
+      font-family: var(--font-mono); font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--ink-3); background: var(--bg-2); border: 1px solid var(--line); padding: 3px 9px; border-radius: 999px;
+    }
+    .app-name b { font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: 1.05rem; color: var(--accent); letter-spacing: -0.01em; }
+    .card .app-name { margin: -2px 0 12px; }
+    .card .app-name b { font-size: 0.98rem; }
     .feature-body > p { color: var(--ink-2); font-size: 0.98rem; line-height: 1.8; margin-bottom: 26px; }
     .stats {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px;
@@ -795,6 +803,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
       <div class="feature-body">
         <div class="kicker">MLOps <span class="tag">Live demo</span></div>
         <h3>Fraud-Detection-MLOps</h3>
+        <div class="app-name"><span>App name</span><b>Sentinel</b></div>
         <p>Card-fraud scoring that keeps itself honest. An XGBoost model trained on 6.1M transactions watches for drift, retrains, and only promotes a new model if it beats the current one. Along the way I found a data leak that had been inflating the score, and fixed the split.</p>
         <dl class="stats">
           <div><dt>0.952</dt><dd>AUC, level with AutoGluon's 0.9520</dd></div>
@@ -842,6 +851,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
       <div class="feature-body">
         <div class="kicker">Search &amp; recommendation <span class="tag">Live demo</span></div>
         <h3>Semantic-Movie-Recommender</h3>
+        <div class="app-name"><span>App name</span><b>CineSemantics</b></div>
         <p>Describe a mood and find the film. Semantic search over the whole catalog plus picks from viewers with similar taste, all checked offline. A frontier LLM ranked slightly better, but it recommended films that weren't in the catalog and ran about 5,200&times; slower.</p>
         <dl class="stats">
           <div><dt>9,837</dt><dd>films indexed, with posters</dd></div>
@@ -866,6 +876,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
       <div class="feature-body">
         <div class="kicker">Fintech <span class="tag">Live app</span></div>
         <h3>AI-Personal-Finance-Manager</h3>
+        <div class="app-name"><span>App name</span><b>FinTrack</b></div>
         <p>A money tracker that reads receipts, sorts spending, flags odd charges and forecasts cash flow. The cheap classifier matches a frontier LLM on merchants it knows but falls apart on new ones, so the app calls the LLM only for those. Create a free account and try it.</p>
         <dl class="stats">
           <div><dt>0.975</dt><dd>macro-F1 sorting spending into categories</dd></div>
@@ -890,6 +901,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="card-body">
           <div class="kicker">Agents &middot; Regulated finance</div>
           <h4>AI-Customer-Ops-Engine</h4>
+          <div class="app-name"><span>App name</span><b>PennyCore</b></div>
           <p>Memory and safety for customer-service AI: it remembers a customer across chat, email, SMS and voice, and sends risky actions to a human. A plain rules table made the right policy call every time; the LLM prompt managed 0.54.</p>
           <ul class="chips"><li>871 tests</li><li>FastAPI</li><li>Postgres</li><li>Redis</li><li>OpenTelemetry</li></ul>
           <div class="link-row"><a class="link-pill" href="https://github.com/Mark007-R/AI-Customer-Ops-Engine" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a></div>
@@ -900,6 +912,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="card-body">
           <div class="kicker">Time series &middot; Honest negative</div>
           <h4>Stock-Price-Forecaster</h4>
+          <div class="app-name"><span>App name</span><b>StockAI</b></div>
           <p>Six forecasters, from ARIMA to an LSTM and PatchTST, tested walk-forward with trading costs on 10 stocks. The honest result: none beats buy-and-hold, and a frontier LLM called direction at coin-flip odds.</p>
           <ul class="chips"><li>90 tests</li><li>ARIMA</li><li>LSTM</li><li>PatchTST</li><li>MLflow</li></ul>
           <div class="link-row"><a class="link-pill" href="https://github.com/Mark007-R/Stock-Price-Forecaster" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a></div>
@@ -910,6 +923,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="card-body">
           <div class="kicker">Computer vision &middot; Document AI</div>
           <h4>Diagram-Structure-Extractor</h4>
+          <div class="app-name"><span>App name</span><b>DiagraMine</b></div>
           <p>Turns a picture of an architecture diagram into structured data: every box, label and arrow, and what connects to what, returned as schema-valid JSON every time.</p>
           <ul class="chips"><li>73 tests</li><li>PaddleOCR</li><li>OpenCV</li><li>YOLOv8</li><li>FastAPI</li></ul>
           <div class="link-row"><a class="link-pill" href="https://github.com/Mark007-R/Diagram-Structure-Extractor" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a></div>
@@ -920,6 +934,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="card-body">
           <div class="kicker">NLP &middot; RAG</div>
           <h4>Restaurant-Intelligence-Platform</h4>
+          <div class="app-name"><span>App name</span><b>RestoAI</b></div>
           <p>Reads about 24k restaurant reviews for sentiment and complaint type, with a chat that answers questions about them. Every part is measured against a simple baseline, including the RAG chat that lost to templates.</p>
           <ul class="chips"><li>88 tests</li><li>LightGBM</li><li>FAISS</li><li>FastAPI</li><li>Redis</li></ul>
           <div class="link-row"><a class="link-pill" href="https://github.com/Mark007-R/Restaurant-Intelligence-Platform" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a></div>
@@ -930,6 +945,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="card-body">
           <div class="kicker">LLM tools &middot; Analytics</div>
           <h4>AI-Data-Analyst</h4>
+          <div class="app-name"><span>App name</span><b>DataAI</b></div>
           <p>Upload a spreadsheet and get a written summary, automatic charts and a chatbot that answers by running real SQL, through a custom MCP server with five tools.</p>
           <ul class="chips"><li>MCP</li><li>FastAPI</li><li>DuckDB</li><li>ECharts</li><li>Docker</li></ul>
           <div class="link-row"><a class="link-pill" href="https://github.com/Mark007-R/AI-Data-Analyst" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a></div>
@@ -940,6 +956,7 @@ server.<span class="f">run</span>()  <span class="c"># any MCP client can call i
         <div class="card-body">
           <div class="kicker">RAG &middot; Documents</div>
           <h4>Document-QA-RAG</h4>
+          <div class="app-name"><span>App name</span><b>RagLeo</b></div>
           <p>Upload a PDF and ask questions about it. Answers come from the passages it retrieves, served from a Flask app with sign-in and rate limiting.</p>
           <ul class="chips"><li>20 tests</li><li>Flask</li><li>FAISS</li><li>LangChain</li><li>Llama 3.3</li></ul>
           <div class="link-row"><a class="link-pill" href="https://github.com/Mark007-R/Document-QA-RAG" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a></div>
